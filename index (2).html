@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EletroPlus - Sua Loja de Eletrodomésticos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            'from': { opacity: 0, transform: 'translateY(20px)' },
+                            'to': { opacity: 1, transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .animate-delay-100 { animation-delay: 0.1s; }
+        .animate-delay-200 { animation-delay: 0.2s; }
+        .animate-delay-300 { animation-delay: 0.3s; }
+        .animate-delay-400 { animation-delay: 0.4s; }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary-600 dark:text-primary-400 flex items-center">
+                        <i class="fas fa-bolt mr-2"></i>EletroPlus
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 font-medium transition-colors">Início</a>
+                    <a href="#categories" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 font-medium transition-colors">Categorias</a>
+                    <a href="#products" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 font-medium transition-colors">Produtos</a>
+                    <a href="#offers" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 font-medium transition-colors">Ofertas</a>
+                    <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 font-medium transition-colors">Contato</a>
+                </nav>
+
+                <!-- Right side icons -->
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                    <a href="#" class="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors relative">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="#" class="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-1 -right-1 bg-primary-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </a>
+                    <button class="md:hidden p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" data-hs-overlay="#mobile-menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hs-overlay hidden w-full fixed inset-y-0 left-0 z-60 bg-white dark:bg-gray-800 overflow-y-auto transition-all duration-300 transform -translate-x-full">
+            <div class="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700">
+                <a href="#" class="text-xl font-bold text-primary-600 dark:text-primary-400 flex items-center">
+                    <i class="fas fa-bolt mr-2"></i>EletroPlus
+                </a>
+                <button class="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" data-hs-overlay="#mobile-menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-2 p-4">
+                <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 font-medium transition-colors" data-hs-overlay="#mobile-menu">Início</a>
+                <a href="#categories" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 font-medium transition-colors" data-hs-overlay="#mobile-menu">Categorias</a>
+                <a href="#products" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 font-medium transition-colors" data-hs-overlay="#mobile-menu">Produtos</a>
+                <a href="#offers" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 font-medium transition-colors" data-hs-overlay="#mobile-menu">Ofertas</a>
+                <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 font-medium transition-colors" data-hs-overlay="#mobile-menu">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-r from-primary-500 to-primary-700 text-white py-20">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6 animate-fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight">Os melhores eletrodomésticos para sua casa</h1>
+                    <p class="text-lg md:text-xl">Tecnologia, conforto e qualidade com os melhores preços do mercado. Parcele em até 12x sem juros!</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#products" class="bg-white text-primary-700 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition duration-300 shadow-lg">Ver Produtos</a>
+                        <a href="#offers" class="border-2 border-white text-white hover:bg-white/10 px-6 py-3 rounded-lg font-semibold transition duration-300">Ofertas Especiais</a>
+                    </div>
+                </div>
+                <div class="animate-fade-in animate-delay-200">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Eletrodomésticos modernos" 
+                         class="rounded-xl shadow-2xl w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-12 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Feature 1 -->
+                <div class="text-center p-4 animate-fade-in animate-delay-100">
+                    <div class="bg-primary-100 dark:bg-primary-900/30 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-truck text-2xl text-primary-600 dark:text-primary-400"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-800 dark:text-white mb-2">Frete Grátis</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Para compras acima de R$ 1.000,00</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="text-center p-4 animate-fade-in animate-delay-200">
+                    <div class="bg-primary-100 dark:bg-primary-900/30 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-credit-card text-2xl text-primary-600 dark:text-primary-400"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-800 dark:text-white mb-2">Parcele em 12x</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Sem juros no cartão</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="text-center p-4 animate-fade-in animate-delay-300">
+                    <div class="bg-primary-100 dark:bg-primary-900/30 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-2xl text-primary-600 dark:text-primary-400"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-800 dark:text-white mb-2">Garantia</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">De fábrica em todos os produtos</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="text-center p-4 animate-fade-in animate-delay-400">
+                    <div class="bg-primary-100 dark:bg-primary-900/30 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-headset text-2xl text-primary-600 dark:text-primary-400"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-800 dark:text-white mb-2">Suporte 24/7</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Atendimento especializado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-12 bg-gray-100 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-white animate-fade-in">Nossas Categorias</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Category 1 - TVs -->
+                <a href="#tvs" class="category-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 animate-fade-in animate-delay-100">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Televisões" 
+                             class="w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-white">Televisões</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">Smart TVs 4K e 8K</p>
+                    </div>
+                </a>
+                
+                <!-- Category 2 - Sofás -->
+                <a href="#sofas" class="category-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 animate-fade-in animate-delay-200">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555041469-a5860bcea5b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Sofás" 
+                             class="w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-white">Sofás</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">Conforto e estilo</p>
+                    </div>
+                </a>
+                
+                <!-- Category 3 - Geladeiras -->
+                <a href="#refrigerators" class="category-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 animate-fade-in animate-delay-300">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="Geladeiras" 
+                             class="w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-white">Geladeiras</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">Tecnologia e eficiência</p>
+                    </div>
+                </a>
+                
+                <!-- Category 4 - Eletroportáteis -->
+                <a href="#appliances" class="category-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 animate-fade-in animate-delay-400">
+                    <div class="h-40 bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a9e5?ix
